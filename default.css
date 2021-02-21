@@ -1,4 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+body{
+    padding: 30px;
+}
+
+h1{
+    font-family: 'Satisfy', cursive;
+    margin-left: 50px;
+    color: #303841;
+    background: #fff !important;
+}
+
+#main-body{
+    display: flex;
+    justify-content: space-between;
+}
+
+#spacer{
+    width: 300px;
+}
+
+#instructions{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#center{
+    display: flex;
+    justify-content: center;
+}
+
+#controls{
+    display: flex;
+    justify-content:space-evenly;
+    margin-top: 15px;
+}
+
+#grid-size{
+    margin-top: 6px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+button:hover{
+    background: rgba(255, 65, 55, 1);
+    cursor: pointer;
+}
+
+button{
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    font-size: 18px;
+    background: rgba(255, 65, 55, .9);
+    border: 1px solid #db4213;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 87, 34, 0.7);
+}
+
 #container{
+    background: #fff;
     width: 500px;
     height: 500px;
     display: grid;
@@ -9,14 +72,54 @@
     border: 1px solid black;
 }
 
-#container{
-    background: #fff;
+#container:hover{
+    cursor: crosshair;
 }
 
 #container div{
     border: 0.5px solid #eee;
 }
 
-.on{
-    background: #000;
+#color-choices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 300px;
+}
+
+#color-choices div{
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    opacity: .5;
+}
+
+#color-choices div:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.aqua{
+    background: #00ADB5;
+    color: #00ADB5;
+}
+
+.lime{
+    background: #A7FF33;
+    color: #A7FF33;
+}
+
+.orange{
+    background: #ff4137;
+    color: #ff4137;
+}
+
+.black{
+    background: #303841;
+    color: #303841;
+}
+
+.selected{
+    opacity: 1 !important;
 }

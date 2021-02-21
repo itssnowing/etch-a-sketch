@@ -4,66 +4,33 @@
         <link rel="stylesheet" href="default.css">
     </head>
     <body>
-        <h1>Etch-a-Sketch</h1>
-        <div id="container">
-            <!-- grid boxes will populate here automatically-->
+        <div id="main-body">
+            <div id="instructions">
+                <h1>Etch-a-Sketch</h1>
+                <p>Click the arrows to clear the grid and change the pixel size.</p>
+                <p>Click to select a new color.</p>
+                <div id="color-choices">
+                    <div class="black"></div>
+                    <div class="aqua"></div>
+                    <div class="lime"></div>
+                    <div class="orange"></div>
+                </div>
+            </div>
+            <div id="center">
+                <div id="container">
+                <!-- grid boxes will populate here automatically-->
+                </div>
+            </div>
+            <div id="spacer"></div>
         </div>
-        <button id="down"><-</button>
-        <div id="grid-size" type="text">16</div> <!-- default value is 16, update on button press-->
-        <button id="up">-></button>
+        <div id="controls">
+            <button id="down">🡰</button>
+            <!-- default value is 16, update on button press-->
+            <div id="grid-size" type="text"> 
+                16
+            </div>
+            <button id="up">🡲</button>
+        </div>
     </body>
-    <script>
-        let container = document.getElementById("container");
-        let grid = document.getElementById("grid-size");
-        let gridSize = document.getElementById("grid-size").innerHTML;
-        let buttonDown = document.getElementById("down");
-        let buttonUp = document.getElementById("up");
-
-        function makeGrid(cells){
-            container.style.gridTemplateColumns = "repeat(" + cells + ", 1fr)";
-            container.style.gridTemplateRows = "repeat(" + cells + ", 1fr)";
-            for(i = 0; i < cells * cells; i++){
-                let newDiv = document.createElement("div");
-                container.appendChild(newDiv);
-            }
-            changeColor();
-            remakeGrid();
-        }
-
-        function changeColor(){
-            let pixels = document.querySelectorAll("#container div");
-
-            pixels.forEach(function(pixel){
-                pixel.addEventListener("mouseenter", function(){
-                    pixel.classList.add("on");
-                });
-            });
-        }
-
-        function removeGrid(){
-            while (container.firstChild){
-                container.removeChild(container.firstChild);
-            }
-        }
-
-        function remakeGrid(){
-            buttonDown.addEventListener("click", function(){
-                let cells = gridSize--;
-                console.log(gridSize, cells);
-                grid.innerText = cells;
-                removeGrid();
-                makeGrid(cells);
-            });
-
-            buttonUp.addEventListener("click", function(){
-                let cells = gridSize++;
-                console.log(gridSize, cells);
-                grid.innerText = cells;
-                removeGrid();
-                makeGrid(cells);
-            });
-        }
-
-        makeGrid(16);
-    </script>
+    <script type="text/javascript" src="script.js"></script>
 </html>
